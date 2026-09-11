@@ -1,6 +1,7 @@
 import WorkoutItem from './components/WorkoutItem';
 import WorkoutForm from './components/WorkoutForm';
 import NewWorkout from './components/NewWorkout';
+import WorkoutList from './components/WorkoutList';
 import { useState } from 'react';
 import './App.css';
 
@@ -26,20 +27,7 @@ function App() {
 
       {/* Workout Form Mockup */}
       <NewWorkout onAddWorkout={addWorkoutHandler}/>
-
-      {/* Mock Workout List */}
-      <div className="card">
-        <h2>Daily Log</h2>
-        { workouts.map((workout) => (
-          <WorkoutItem
-            key={workout.id}
-            title={workout.title}
-            duration={workout.duration}
-            type={workout.type}
-          />
-        ))}
-      </div>
-
+      <WorkoutList items={workouts}/>
 
     </div>
   )
