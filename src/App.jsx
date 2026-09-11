@@ -1,5 +1,6 @@
 import WorkoutItem from './components/WorkoutItem';
 import WorkoutForm from './components/WorkoutForm';
+import NewWorkout from './components/NewWorkout';
 import { useState } from 'react';
 import './App.css';
 
@@ -11,6 +12,10 @@ const INITIAL_WORKOUTS = [
 function App() {
   const [workouts, setWorkouts] = useState(INITIAL_WORKOUTS);
 
+  const addWorkoutHandler = (workout) => {
+    setWorkouts((prevWorkouts) => [workout, ...prevWorkouts]);
+  };
+
   const clickHandler = (title) => {
     console.log("Workout clicked: " + title);
   };
@@ -20,7 +25,7 @@ function App() {
       <h1>Fitlog - Fitness Activity Tracker</h1>
 
       {/* Workout Form Mockup */}
-      <WorkoutForm/>
+      <NewWorkout onAddWorkout={addWorkoutHandler}/>
 
       {/* Mock Workout List */}
       <div className="card">

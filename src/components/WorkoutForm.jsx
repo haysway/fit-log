@@ -15,7 +15,7 @@ function WorkoutForm(props) {
             type: enteredType
         }
 
-        // TODO
+        props.onSaveWorkoutData(workoutData);
 
         setEnteredTitle('');
         setEnteredDuration('');
@@ -55,7 +55,7 @@ function WorkoutForm(props) {
 
             <button type="submit">Add Workout</button>
         </form>
-    )
+    );
 }
 
 export default WorkoutForm;
